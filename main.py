@@ -4,6 +4,12 @@ from surprise import Dataset, Reader
 from surprise import KNNBasic
 from surprise.model_selection import train_test_split
 from surprise import accuracy
+import streamlit as st
+try:
+    from surprise import Dataset, Reader
+except Exception as e:
+    st.error(f"Error importing Surprise library: {e}")
+    raise
 
 # Load dataset
 uploaded_file = st.file_uploader("Upload IMDb Dataset", type=["csv"])
